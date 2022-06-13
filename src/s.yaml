@@ -1,6 +1,6 @@
 edition: 1.0.0          #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
 name: website-hexo-container       #  项目名称
-access: {{ access }}  #  秘钥别名
+access: '{{ access }}'  #  秘钥别名
 
 services:
   framework: #  服务名称
@@ -9,18 +9,18 @@ services:
       pre-deploy:
         - component: fc build --use-docker --dockerfile ./code/dockerfile
     props: #  组件的属性值
-      region: {{ region }}
+      region: '{{ region }}'
       service:
-        name: {{ serviceName }}
+        name: '{{ serviceName }}'
         description: "Serverless Devs Website Service"
       function:
-        name: {{ functionName }}
+        name: '{{ functionName }}'
         description: "Serverless Devs Website hexo Function"
         codeUri: ./code
         memorySize: 512
         runtime: custom-container
         customContainerConfig:
-          image: {{ acrRegistry }}
+          image: '{{ acrRegistry }}'
         timeout: 30
       triggers:
         - name: httpTrigger
