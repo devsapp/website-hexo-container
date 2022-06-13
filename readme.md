@@ -34,15 +34,15 @@
 
 <appcenter>
 
-- :fire: 通过 [Serverless 应用中心](https://fcnext.console.aliyun.com/applications/create?template=website-hexo) ，
-[![Deploy with Severless Devs](https://img.alicdn.com/imgextra/i1/O1CN01w5RFbX1v45s8TIXPz_!!6000000006118-55-tps-95-28.svg)](https://fcnext.console.aliyun.com/applications/create?template=website-hexo)  该应用。 
+- :fire: 通过 [Serverless 应用中心](https://fcnext.console.aliyun.com/applications/create?template=website-hexo-container) ，
+[![Deploy with Severless Devs](https://img.alicdn.com/imgextra/i1/O1CN01w5RFbX1v45s8TIXPz_!!6000000006118-55-tps-95-28.svg)](https://fcnext.console.aliyun.com/applications/create?template=website-hexo-container)  该应用。 
 
 </appcenter>
 
 - 通过 [Serverless Devs Cli](https://www.serverless-devs.com/serverless-devs/install) 进行部署：
     - [安装 Serverless Devs Cli 开发者工具](https://www.serverless-devs.com/serverless-devs/install) ，并进行[授权信息配置](https://www.serverless-devs.com/fc/config) ；
-    - 初始化项目：`s init website-hexo -d website-hexo`   
-    - 进入项目，并进行项目部署：`cd website-hexo && s deploy -y`
+    - 初始化项目：`s init website-hexo -d website-hexo-container`   
+    - 进入项目，并进行项目部署：`cd website-hexo-container && s deploy -y`
 
 </deploy>
 
@@ -66,7 +66,7 @@
 ![图片alt](https://img.alicdn.com/imgextra/i4/O1CN01crbYOg1MXOeyDUzQ0_!!6000000001444-2-tps-2532-1328.png)
 
 ## 实现原理
-使用函数计算的 [Custom Container](https://help.aliyun.com/document_detail/179368.html) 将Hexo项目封装成函数，需要实现一个WebServer来监听函数计算发来的所有请求。本项目利用 [Express](https://expressjs.com/) 框架实现[入口代码](https://github.com/devsapp/website-hexo-container/blob/master/code/index.js)，接受函数计算的所有流量，转换成 Hexo 网站的静态页。
+使用函数计算的 [Custom Container](https://help.aliyun.com/document_detail/179368.html) 将Hexo项目封装成函数，需要实现一个WebServer来监听函数计算发来的所有请求。本项目利用 [Express](https://expressjs.com/) 框架实现[入口代码](https://github.com/devsapp/website-hexo-container/blob/main/src/code/index.js)，接受函数计算的所有流量，转换成 Hexo 网站的静态页。
 
 在部署前需要通过 [s build](https://github.com/devsapp/fc/blob/main/docs/zh/command/build.md#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-use-docker) 能力完成自定义镜像的构建和发布。
 
