@@ -11,7 +11,7 @@ Type: Application
 Name: hexo-container
 Provider:
   - 阿里云
-Version: 0.0.1
+Version: 0.0.2
 Description: 使用 custom container 部署 Hexo 博客到函数计算
 HomePage: https://github.com/devsapp/hexo-container
 Tags: #标签详情
