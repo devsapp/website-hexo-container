@@ -17,7 +17,7 @@ HomePage: https://github.com/devsapp/hexo-container
 Tags: #标签详情
   - 静态网站
   - custom container
-Category: Web应用
+Category: Jamstack
 Service: # 使用的服务
   函数计算:
     Authorities:
