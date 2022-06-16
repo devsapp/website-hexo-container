@@ -8,13 +8,6 @@ services:
     actions:
       pre-deploy:
         - component: fc build --use-docker --dockerfile ./code/dockerfile
-      post-deploy: # 在deploy之后运行
-        - plugin: fc-canary
-          args:
-            description: 'auto canary'
-            canaryStep: # 灰度20%流量，1分钟后灰度剩余80%流量
-              weight: 20
-              interval: 1
     props: #  组件的属性值
       region: '{{ region }}'
       service:
