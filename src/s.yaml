@@ -7,7 +7,7 @@ services:
     component: fc  # 组件名称
     actions:
       pre-deploy:
-        - component: fc build --use-docker --dockerfile ./code/dockerfile
+        - component: fc build --use-docker --dockerfile ./code/Dockerfile
     props: #  组件的属性值
       region: '{{ region }}'
       service:
