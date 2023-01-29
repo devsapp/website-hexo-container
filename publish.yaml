@@ -11,7 +11,7 @@ Type: Application
 Name: website-hexo-container
 Provider:
   - 阿里云
-Version: 0.0.5
+Version: 0.0.6
 Description: 使用 custom container 部署 Hexo 博客到函数计算
 HomePage: https://github.com/devsapp/website-hexo-container
 Tags: #标签详情
@@ -22,6 +22,7 @@ Service: # 使用的服务
   函数计算:
     Authorities:
       - AliyunFCFullAccess
+      - AliyunContainerRegistryFullAccess
   # ACR:
   #   Authorities:
   #     - AliyunFCFullAccess
@@ -72,6 +73,7 @@ Parameters:
     acrRegistry:
       title: 镜像仓库
       type: string
-      default: 'registry.<region>.aliyuncs.com/<namespace>/<repo>:v0.1'
       examples: ['registry.cn-hangzhou.aliyuncs.com/fc-demo/custom-cpp-event-function:v0.1']
       description: 镜像仓库地址，需要在 https://cr.console.aliyun.com/ 中开通服务、创建仓库以及设置访问凭证
+      x-acr:
+        type: 'select'
